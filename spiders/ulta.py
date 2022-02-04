@@ -1,7 +1,6 @@
 import json
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 
 
 class Ulta:
@@ -140,4 +139,6 @@ class Ulta:
             for review in reviews_list:
                 reviews.append(self.parse_review(review))
             next_from += 25
+
         return reviews
+

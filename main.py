@@ -1,4 +1,4 @@
-from ulta import Ulta
+from spiders.ulta import Ulta
 
 # Simple test of the class
 if __name__ == '__main__':
