@@ -8,6 +8,7 @@ class Ulta:
     def __init__(self, url):
         self.url = url
 
+    # parse the ld+json that contain product information from teh html source page
     def parse_ld_json(self, soup):
         ld_json = soup.findAll('script', {'type': 'application/ld+json'})
         ld_json = [json.loads(ld.text) for ld in ld_json if 'product' in ld.text.lower()]
