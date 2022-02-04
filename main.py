@@ -1,4 +1,4 @@
-from spiders.ulta import Ulta
+from ulta import Ulta
 
 # Simple test of the class
 if __name__ == '__main__':
@@ -7,6 +7,3 @@ if __name__ == '__main__':
     ulta = Ulta(url)
     product_info = ulta.scrap_product_info()
     product_reviews = ulta.scrap_reviews()
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
