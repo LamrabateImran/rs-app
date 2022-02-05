@@ -19,7 +19,7 @@ If you want to add a spider/scraper to the app or even a new feature please use 
 ## Upcoming Scraper/Spiders
 
 - [Sephora Scraper](https://www.sephora.com/)
-- [verishop](https://www.verishop.com/)
+- [verishop Scraper](https://www.verishop.com/)
 
 
 ## Contribution
