@@ -13,7 +13,7 @@ The extracted data you can use for market research, product design, consumer buy
 
 If you want to add a spider/scraper to the app or even a new feature please use the link bellow or open it as an issue in this github repo. Most upvoted feature will be added to the app.
 
-[Add new spider or feature](https://vote.hnmedia.io/)
+> [Add new spider or feature](https://vote.hnmedia.io/)
 
 
 ## Upcoming Scraper/Spiders
