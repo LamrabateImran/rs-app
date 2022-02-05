@@ -35,7 +35,7 @@ You are most welcome to contribute to this project and create pull requests.
 ## Credit
 
 
-Big thanks for @diemonster for all his comments, feedbacks and instruction.
+Big thanks for @diemonster[https://github.com/diemonster] for all his comments, feedbacks and instruction.
 
 
 ## Disclimar
