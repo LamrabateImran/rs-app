@@ -4,12 +4,15 @@ The purpose of this project is to create a library of spiders/scraper for major 
 
 The extracted data you can use for market research, product design, consumer buying impulse...The sky is the limit.
 
+
 ## Supported Scrapers
+
 
 - [Ulta Scraper](https://www.ulta.com/)
 
 
 ## Add a New Spider or Feature
+
 
 If you want to add a spider/scraper to the app or even a new feature please use the link bellow or open it as an issue in this github repo. Most upvoted feature will be added to the app.
 
@@ -18,16 +21,25 @@ If you want to add a spider/scraper to the app or even a new feature please use 
 
 ## Upcoming Scraper/Spiders
 
+
 - [Sephora Scraper](https://www.sephora.com/)
 - [verishop Scraper](https://www.verishop.com/)
 
 
 ## Contribution
 
+
 You are most welcome to contribute to this project and create pull requests.
 
 
+## Credit
+
+
+Big thanks for @diemonster for all his comments, feedbacks and instruction.
+
+
 ## Disclimar
+
 
 This library is built for educational puposes ONLY, use at your own risk.
 
