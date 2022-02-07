@@ -9,7 +9,7 @@ if __name__ == '__main__':
     parser.add_argument('--url', action='store', dest='product_url', help='Product url')
     parser.add_argument('--file', action='store', dest='file_location', help='Source file that contain list of products')
     parser.add_argument('--info', action='store_true', default=False, dest='product_info', help='Product details')
-    parser.add_argument('--reviews', dest='product_reviews', help='Product reviews')
+    parser.add_argument('--reviews',  action='store_true', dest='product_reviews', default=False, help='Product reviews')
     parser.add_argument('--version', action='version', version='ERS 1.0')
     args = parser.parse_args()
     spider_name = args.spider_name.lower()
