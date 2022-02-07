@@ -1,7 +1,4 @@
-import pathlib
-from typing import Union
 import pandas as pd
-from inspect import isclass, getmembers
 
 
 def convert_file_to_list(filelocation):
