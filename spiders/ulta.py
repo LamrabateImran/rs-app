@@ -4,8 +4,17 @@ from bs4 import BeautifulSoup
 
 
 class Ulta:
-    def __init__(self, url):
+    product_info = None
+    product_reviews = None
+
+    def __init__(self, url: str = None, urls: list = None):
         self.url = url
+        self.urls = urls
+        if urls:
+            print(urls)
+        elif url:
+            self.product_info = self.scrap_product_info()
+            self.product_reviews = self.scrap_reviews()
 
     # parse the ld+json that contain product information from teh html source page
     def parse_ld_json(self, soup):
@@ -87,3 +96,5 @@ class Ulta:
             next_from += 25
         return reviews
 
+    def scrap_product_list(self, urls):
+        ...
