@@ -15,7 +15,7 @@ if __name__ == '__main__':
     spider_name = args.spider_name.lower()
     spider = getattr(import_module(f'spiders.{args.spider_name}'), spider_name.capitalize())
     if not ((args.product_url or args.file_location) and (args.product_info or args.product_reviews)):
-        exit("error: Please spiffy --url or --file parameters as well as --info or --reviews.")
+        exit("error: Please specify --url or --file parameters as well as --info or --reviews.")
     elif args.product_url:
         url = args.product_url
         data = spider(url=url)
