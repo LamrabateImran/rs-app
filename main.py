@@ -25,7 +25,8 @@ if __name__ == '__main__':
     elif args.product_url:
         url = args.product_url
         data = spider(url=url)
-        save_as(data, 'product_details', args.save_as)
+        product_info = data.product_info
+        save_as(product_info, 'product_details', args.save_as)
     elif args.file_location:
         filelocation = args.file_location
         urls = convert_file_to_list(filelocation)
