@@ -36,7 +36,7 @@ You are most welcome to contribute to this project and create pull requests.
 
 
 Big thanks to [@diemonster](https://github.com/diemonster) for all his comments, feedbacks and instruction.
-
+Huge thanks to the `#python` community in the [libera IRC](https://libera.chat)
 
 ## Disclimar
 
