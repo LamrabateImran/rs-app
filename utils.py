@@ -15,13 +15,17 @@ def convert_file_to_list(filelocation):
 
 
 def save_as(data, data_type, extension):
-    print(data)
+    df = None
     if isinstance(data, dict):
-        data = list(data)
-    df = pd.DataFrame(data)
+        df = pd.DataFrame(data, index=[0])
+    elif isinstance(data, list):
+        df = pd.DataFrame(data)
     if extension == 'csv':
         df.to_csv(f'{data_type}.csv')
     elif extension == 'xlsx':
         df.to_excel(f'{data_type}.xlsx')
     elif extension == 'json':
-        df.to_json(f'{data_type}.json', indent=4, lines=True)
+        df.to_json(f'{data_type}.json', orient="records", indent=4)
+
+
+
