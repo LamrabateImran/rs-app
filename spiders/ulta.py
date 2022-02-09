@@ -11,10 +11,10 @@ class Ulta:
         self.url = url
         self.urls = urls
         if urls:
-            print(urls)
+            self.product_info, self.product_reviews = self.scrap_product_list(urls)
         elif url:
-            self.product_info = self.scrap_product_info()
-            self.product_reviews = self.scrap_reviews()
+            self.product_info = self.scrap_product_info(self.url)
+            self.product_reviews = self.scrap_reviews(self.url)
 
     # parse the ld+json that contain product information from teh html source page
     def parse_ld_json(self, soup):
@@ -26,11 +26,11 @@ class Ulta:
             ld_json = None
         return ld_json
 
-    def parse_review(self, rev):
+    def parse_review(self, rev, url):
         review_keys = ['comments', 'headline', 'brand_base_url', 'brand_name', 'nickname', 'source', 'location', 'created_date', 'updated_date', 'bottom_line', 'product_page_id']
         metric_keys = ['helpful_votes', 'not_helpful_votes', 'rating', 'helpful_score']
         parsed_review = dict()
-        parsed_review['product_url'] = self.url
+        parsed_review['product_url'] = url
         review = rev['details']
         metrics = rev['metrics']
         for key in review_keys:
@@ -48,9 +48,9 @@ class Ulta:
             product_review_count = None
         return product_rating_value, product_review_count
 
-    def scrap_product_info(self):
+    def scrap_product_info(self, url):
         product = None
-        response = requests.get(self.url)
+        response = requests.get(url)
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
             ld_json = self.parse_ld_json(soup)
@@ -78,9 +78,9 @@ class Ulta:
             print('url not found')
         return product
 
-    def scrap_reviews(self):
+    def scrap_reviews(self, url):
         reviews = []
-        pimprod = self.url.split('-')[-1]
+        pimprod = url.split('-')[-1]
         api_url = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from=0&paging.size=25&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b'
         response = requests.get(api_url)
         data = response.json()
@@ -92,9 +92,15 @@ class Ulta:
             data = response.json()
             reviews_list = data['results'][0]['reviews']
             for review in reviews_list:
-                reviews.append(self.parse_review(review))
+                reviews.append(self.parse_review(review, url))
             next_from += 25
         return reviews
 
     def scrap_product_list(self, urls):
-        ...
+        reviews = []
+        infos = []
+        for url in urls:
+            infos.append(self.scrap_product_info(url))
+            scraped_reviews = self.scrap_reviews(url)
+            reviews = [review for review in scraped_reviews]
+        return infos, reviews
