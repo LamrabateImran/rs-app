@@ -85,15 +85,20 @@ class Ulta:
         response = requests.get(api_url)
         data = response.json()
         pages_total = data['paging']['pages_total']
-        next_from = 0
-        for _ in range(pages_total):
-            next_page = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from={next_from}&paging.size=20&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b'
-            response = requests.get(next_page)
-            data = response.json()
+        if pages_total > 1:
+            next_from = 0
+            for _ in range(pages_total):
+                next_page = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from={next_from}&paging.size=20&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b'
+                response = requests.get(next_page)
+                data = response.json()
+                reviews_list = data['results'][0]['reviews']
+                for review in reviews_list:
+                    reviews.append(self.parse_review(review, url))
+                next_from += 25
+        else:
             reviews_list = data['results'][0]['reviews']
             for review in reviews_list:
                 reviews.append(self.parse_review(review, url))
-            next_from += 25
         return reviews
 
     def scrap_product_list(self, urls):
