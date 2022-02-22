@@ -65,6 +65,3 @@ class Sephora:
     def scrap_product_reviews(self):
         if isinstance(self.productid, str):
             self.parse_product_reviews(self.productid)
-
-
-

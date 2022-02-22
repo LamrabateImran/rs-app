@@ -7,12 +7,9 @@ class Ulta:
     product_info = None
     product_reviews = None
 
-    def __init__(self, url: str = None, urls: list = None):
+    def __init__(self, url: str = None):
         self.url = url
-        self.urls = urls
-        if urls:
-            self.product_info, self.product_reviews = self.scrap_product_list(urls)
-        elif url:
+        if url:
             self.product_info = self.scrap_product_info(self.url)
             self.product_reviews = self.scrap_reviews(self.url)
 
@@ -101,12 +98,3 @@ class Ulta:
             for review in reviews_list:
                 reviews.append(self.parse_review(review, url))
         return reviews
-
-    def scrap_product_list(self, urls):
-        reviews = []
-        infos = []
-        for url in urls:
-            infos.append(self.scrap_product_info(url))
-            scraped_reviews = self.scrap_reviews(url)
-            reviews = [review for review in scraped_reviews]
-        return infos, reviews

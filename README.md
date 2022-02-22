@@ -4,11 +4,28 @@ The purpose of this project is to create a library of spiders/scraper for major 
 
 The extracted data you can use for market research, product design, consumer buying impulse...The sky is the limit.
 
-
+## Instruction:
+1. How to install:
+```angular2html
+pip install ecom-scraper
+```
+2. How to use:
+```angular2html
+from ecom_scraper.spiders.sephora import Sephora
+# Sephora spider take either product url or productid Sephora(url=url, productid=product_id)
+url = 'https://www.sephora.com/product/huda-beauty-liquid-matte-ultra-comfort-transfer-proof-lipstick-P479843'
+product_id = 'P479843'
+sephora = Sephora(url=url)
+# Or
+sephora = Sephora(productid=product_id)
+product_info = sephora.scrap_product_info()  # Scrap product info
+product_reviews = sephora.scrap_product_reviews()  # Scrap product reviews
+```
 ## Supported Scrapers
 
 
 - [Ulta Scraper](https://www.ulta.com/)
+- [Sephora Scraper](https://www.sephora.com/)
 
 
 ## Add a New Spider or Feature
@@ -22,8 +39,8 @@ If you want to add a spider/scraper to the app or even a new feature please use 
 ## Upcoming Scraper/Spiders
 
 
-- [Sephora Scraper](https://www.sephora.com/)
 - [verishop Scraper](https://www.verishop.com/)
+- [uncommongoods Scraper](https://www.uncommongoods.com/)
 
 
 ## Contribution
