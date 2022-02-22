@@ -6,7 +6,7 @@ The extracted data you can use for market research, product design, consumer buy
 
 ## Instruction:
 1. How to install:
-```angular2html
+```bash
 pip install ecom-scraper
 ```
 2. How to use:
