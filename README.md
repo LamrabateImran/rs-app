@@ -10,7 +10,7 @@ The extracted data you can use for market research, product design, consumer buy
 pip install ecom-scraper
 ```
 2. How to use:
-```angular2html
+```python
 from ecom_scraper.spiders.sephora import Sephora
 # Sephora spider take either product url or productid Sephora(url=url, productid=product_id)
 url = 'https://www.sephora.com/product/huda-beauty-liquid-matte-ultra-comfort-transfer-proof-lipstick-P479843'
