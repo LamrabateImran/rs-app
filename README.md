@@ -18,8 +18,10 @@ product_id = 'P479843'
 sephora = Sephora(url=url)
 # Or
 sephora = Sephora(productid=product_id)
-product_info = sephora.scrap_product_info()  # Scrap product info
-product_reviews = sephora.scrap_product_reviews()  # Scrap product reviews
+sephora.scrap_product_info()  # Instantiate the Scrap product function
+info = sephora.product_info  # product info and its variants will be stored in product_info
+sephora.scrap_product_reviews()  # Instantiate The Scrap product reviews function
+reviews = sephora.product_reviews # All product reviews will be stored in product_reviews
 ```
 ## Supported Scrapers
 
