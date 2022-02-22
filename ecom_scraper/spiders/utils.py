@@ -46,3 +46,5 @@ def get_next_url(url: str, param: str, nxt: int):
     url_parse = url_parse._replace(query=url_new_query)
     next_url = urlunparse(url_parse)
     return next_url
+
+

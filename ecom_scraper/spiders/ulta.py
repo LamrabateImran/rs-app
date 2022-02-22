@@ -27,7 +27,8 @@ class Ulta:
         return ld_json
 
     def parse_review(self, rev, url):
-        review_keys = ['comments', 'headline', 'brand_base_url', 'brand_name', 'nickname', 'source', 'location', 'created_date', 'updated_date', 'bottom_line', 'product_page_id']
+        review_keys = ['comments', 'headline', 'brand_base_url', 'brand_name', 'nickname', 'source', 'location',
+                       'created_date', 'updated_date', 'bottom_line', 'product_page_id']
         metric_keys = ['helpful_votes', 'not_helpful_votes', 'rating', 'helpful_score']
         parsed_review = dict()
         parsed_review['product_url'] = url
