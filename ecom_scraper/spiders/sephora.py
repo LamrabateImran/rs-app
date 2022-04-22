@@ -5,6 +5,7 @@ from ecom_scraper.spiders import utils
 
 
 class Sephora:
+    api_key = ""
     BASE_URL = 'https://www.sephora.com'
     product_info = []
     product_reviews = []
@@ -26,7 +27,7 @@ class Sephora:
         return product_id
 
     def parse_product_info(self, productid):
-        url = f'https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A{productid}&Sort=SubmissionTime%3Adesc&Limit=24&Offset=24&Include=Products%2CComments&Stats=Reviews&passkey=caQ0pQXZTqFVYA1yYnnJ9emgUiW59DXA85Kxry8Ma02HE&apiversion=5.4&Locale=en_US '
+        url = f'https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A{productid}&Sort=SubmissionTime%3Adesc&Limit=24&Offset=24&Include=Products%2CComments&Stats=Reviews&passkey={self.api_key}&apiversion=5.4&Locale=en_US '
         response = requests.get(url)
         data = response.json()
         # Check if there are any product returns
@@ -44,7 +45,7 @@ class Sephora:
             self.parse_product_info(self.productid)
 
     def parse_product_reviews(self, productid):
-        url = f'https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A{productid}&Sort=SubmissionTime%3Adesc&Limit=24&Offset=24&Include=Products%2CComments&Stats=Reviews&passkey=caQ0pQXZTqFVYA1yYnnJ9emgUiW59DXA85Kxry8Ma02HE&apiversion=5.4&Locale=en_US '
+        url = f'https://api.bazaarvoice.com/data/reviews.json?Filter=contentlocale%3Aen*&Filter=ProductId%3A{productid}&Sort=SubmissionTime%3Adesc&Limit=24&Offset=24&Include=Products%2CComments&Stats=Reviews&passkey={self.api_key}&apiversion=5.4&Locale=en_US '
         urls = []
         response = requests.get(url)
         data = response.json()
