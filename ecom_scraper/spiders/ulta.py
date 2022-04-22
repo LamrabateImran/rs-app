@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 
 class Ulta:
+    api_key = ""
     product_info = None
     product_reviews = None
 
@@ -79,14 +80,14 @@ class Ulta:
     def scrap_reviews(self, url):
         reviews = []
         pimprod = url.split('-')[-1]
-        api_url = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from=0&paging.size=25&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b'
+        api_url = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from=0&paging.size=25&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey={self.api_key}'
         response = requests.get(api_url)
         data = response.json()
         pages_total = data['paging']['pages_total']
         if pages_total > 1:
             next_from = 0
             for _ in range(pages_total):
-                next_page = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from={next_from}&paging.size=20&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey=daa0f241-c242-4483-afb7-4449942d1a2b'
+                next_page = f'https://display.powerreviews.com/m/6406/l/en_US/product/{pimprod}/reviews?paging.from={next_from}&paging.size=20&filters=&search=&sort=Newest&image_only=false&_noconfig=true&apikey={self.api_key}'
                 response = requests.get(next_page)
                 data = response.json()
                 reviews_list = data['results'][0]['reviews']
