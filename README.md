@@ -11,7 +11,7 @@ pip install retail-scraper
 ```
 2. How to use:
 ```python
-from retail-scraper.spiders.sephora import Sephora
+from retail_scraper.spiders.sephora import Sephora
 # Sephora spider take either product url or productid Sephora(url=url, productid=product_id)
 url = 'https://www.sephora.com/product/huda-beauty-liquid-matte-ultra-comfort-transfer-proof-lipstick-P479843'
 product_id = 'P479843'
